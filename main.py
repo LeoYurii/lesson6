@@ -38,9 +38,10 @@ def update_password_info(edit, new_edit_text):
     score_text.set_text(f'Рейтинг пароля: {score}')
 
 
-ask = urwid.Edit('Введите пароль: ', mask='*')
-score_text = urwid.Text('')
-menu = urwid.Pile([ask, score_text])
-menu = urwid.Filler(menu, valign='top')
-urwid.connect_signal(ask, 'change', update_password_info)
-urwid.MainLoop(menu).run()
+if __name__ == "__main__":
+    ask = urwid.Edit('Введите пароль: ', mask='*')
+    score_text = urwid.Text('')
+    menu = urwid.Pile([ask, score_text])
+    menu = urwid.Filler(menu, valign='top')
+    urwid.connect_signal(ask, 'change', update_password_info)
+    urwid.MainLoop(menu).run()
